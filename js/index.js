@@ -11,7 +11,7 @@ function init() {
   setGalleryImage();
   setMap();
 
-  Kakao.init('760340e7105c321e7ff96d5fdcb5e524');
+  Kakao.init('2a9240996f44230b0d80348a3d797d99');
 
   setEvents();
 }
@@ -109,7 +109,7 @@ function setEvents() {
 
   const audioButton = document.getElementById("audio-button");
   // BGM 음소거 On/Off 버튼
-  audioButton.addEventListener("click", (e) => {
+  audioButton.addEventListener("click", () => {
     const bgm = document.getElementById("bgm")
 
     const audioIcon = audioButton.querySelector("i");
@@ -151,7 +151,7 @@ function setEvents() {
       content: {
         title: '주영 ♥ 혜연',
         description: '2024년 12월 7일 오전 11시\n아펠가모 광화문',
-        imageUrl: 'https://do02da.github.io/dongjuseulgi/img/main.jpg',
+        imageUrl: 'https://do02da.github.io/hyjy/img/main.jpg',
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href,

@@ -38,7 +38,9 @@ body { font-family: 'Pretendard-Regular'; background-color: rgb(253, 246, 227); 
 .way-info-text { margin-left: 15px; color: black; font-size: 0.8rem; }
 .way-subway { width: fit-content; padding: 0 10px; border-radius: 20px; color: white; font-size: 0.9rem; text-align: center; margin-bottom: 5px;}
 .subway-line-1 { background-color: #0052A4; }
+.subway-line-3 { background-color: #EF7C1C; }
 .subway-line-4 { background-color: #00A5DE; }
+.subway-line-5 { background-color: #996CAC; }
 .subway-line-7 { background-color: #747F00; }
 .way-bus { width: fit-content; padding: 0 10px; border-radius: 20px; color: white; font-size: 0.9rem; text-align: center; margin-bottom: 5px; background-color: #A0A0A0; }
 
