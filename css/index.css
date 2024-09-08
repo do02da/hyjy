@@ -7,7 +7,7 @@
 
 body { font-family: 'Pretendard-Regular'; background-color: rgb(255, 255, 255); }
 
-.intro-wrapper { display:flex; flex-direction: column; justify-content: center; color: black; padding: 50px 0; text-align: center; }
+.intro-wrapper { display:flex; flex-direction: column; justify-content: center; color: black; padding: 15px 0; text-align: center; }
 .intro-title { font-size: 1.3rem; margin-bottom: 25px; font-weight: bold; }
 .intro-text { font-size: 1.0rem; font-weight: 100; line-height: 20px; }
 .intro-picture { max-width: 100%; height: auto; }
