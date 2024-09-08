@@ -2,7 +2,7 @@ const galleryImages = [];
 let isCanCarouselMove = true;
 
 window.addEventListener('DOMContentLoaded', () => {
-  const autoplayVideoInterval = setInterval("autoplayVideo()", 200);
+  // const autoplayVideoInterval = setInterval("autoplayVideo()", 200);
 
   init();
 });
@@ -214,6 +214,8 @@ function openGalleryModal(index) {
   carouselItem.appendChild(carouselImg);
 
   document.querySelector(".carousel-inner").appendChild(carouselItem);
+
+  window.addEventListener("keydown", (e) => keyboardEvent(e));
 }
 
 function closeGalleryModal() {
@@ -221,6 +223,8 @@ function closeGalleryModal() {
   document.body.classList.remove("carousel-modal-open");
 
   document.querySelector(".carousel-inner").textContent = "";
+
+  window.removeEventListener("keydown", keyboardEvent);
 }
 
 function moveCarousel(direction) {
@@ -254,6 +258,16 @@ function moveCarousel(direction) {
       document.querySelector(".carousel-inner").appendChild(carouselItem);
       bsCarousel.next();
     }
+  }
+}
+
+function keyboardEvent(e) {
+  if (e.key === "ArrowLeft") {
+    moveCarousel("prev")
+  } else if (e.key === "ArrowRight") {
+    moveCarousel("next")
+  } else if (e.key === "Escape") {
+    closeGalleryModal();
   }
 }
 
