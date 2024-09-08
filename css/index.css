@@ -20,7 +20,7 @@ body { font-family: 'Noto Sans KR'; background-color: rgb(255, 255, 255); }
 .menu-title-img { width: 100%; max-width: 850px; max-height: 164px; }
 .menu-text { text-align: center; font-size: 1.0rem; font-weight: 100; line-height: 22px; color: black; margin-bottom: 20px; }
 .menu-text.small-text { font-size: 0.85rem; }
-.menu-btn { width: 40%; border: 0px solid #999999; border-radius: 10px; padding: 5px 0; background-color: #999999; color: white; }
+.menu-btn { width: 40%; border: 0px solid #999999; border-radius: 10px; padding: 5px 0; background-color: #999999; color: white; font-weight: bold;}
 
 .gallery-grid { display: grid; grid-auto-flow: dense; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(11, auto); max-width: 100%;}
 .gallery-grid.preview img:nth-child(n+12) { display: none; }
