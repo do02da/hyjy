@@ -13,9 +13,9 @@
   <body>
     <div class="container-fluid">
       <div class="d-flex justify-content-end">
-        <!-- <audio id="bgm"> -->
-          <!-- <source src="./bgm/ambient-piano-and-strings.mp3" type="audio/mpeg"> -->
-        <!-- </audio> -->
+        <audio id="bgm">
+          <source src="./bgm/Christmas_Village_Aaron_Kenny.mp3" type="audio/mpeg">
+        </audio>
         <button id="audio-button" class="btn">
           <i class="bi bi-volume-up"></i>
         </button>
@@ -27,17 +27,16 @@
     </div>
     
     <main class="container">
-      <div class="intro-wrapper slideIn">
+      <div class="intro-wrapper">
         <img src="./img/intro-text.jpg">
       </div>
 
-      <div class="slideIn" style="text-align: center;">
-        <img src="./img/invitation.jpg" class="menu-title-img" style="margin-bottom: 35px;">
+      <div style="text-align: center;">
+        <img src="./img/invitation-title.jpg" class="menu-title-img" style="margin-top: 35px; margin-bottom: 35px;">
       </div>
 
       <div class="menu">
-
-        <div class="menu-contents slideIn">
+        <div class="menu-contents">
           <div class="menu-text small-text">
             십이월의 겨울날,<br>
             함께 보내는 또 하나의 겨울을 맞이하여<br>
@@ -53,56 +52,37 @@
             <br>
           </div>
         </div>
-      </div>
 
-      <div class="menu">
-        <div class="menu-contents">
-          <!-- <img src="./img/gallery/11.jpg" class="img-fluid rounded slideIn"> -->
-          
-          <div class="slideIn" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
-            <!-- <img src="./img/family.png" class="img-fluid rounded"> -->
-            <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#contact-modal">
-              <i class="bi bi-telephone"></i> 연락하기
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu">
-        <div class="menu-title slideIn"></div>
-        <div class="menu-contents slideIn d-flex justify-content-center">
-          <!-- <img src="./img/calendar.png" class="img-fluid"> -->
-        </div>
-      </div>
-
-      <div class="menu">
-        <div class="menu-title slideIn">
-          <img src="./img/flower.png">
-          <div class="menu-sub-title">GALLERY</div>
-          갤러리
-        </div>
-
-        <div id="gallery" class="gallery-grid preview">
-        </div>
-
-        <div class="text-center mt-3">
-          <button class="menu-btn" id="gallery-more-picture">
-            <i class="bi bi-chevron-down"></i> 사진 더 보기
+        <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+          <button class="menu-btn" data-bs-toggle="modal" data-bs-target="#contact-modal">
+            <i class="bi bi-telephone"></i> 연락하기
           </button>
         </div>
       </div>
 
+      <div style="text-align: center;">
+        <img src="./img/gallery-title.jpg" class="menu-title-img" style="margin-top: 35px; margin-bottom: 35px;">
+      </div>
       <div class="menu">
-        <div class="menu-title slideIn">
-          <img src="./img/flower.png">
-          <div class="menu-sub-title">LOCATION</div>
-          오시는 길
+        <div id="gallery" class="gallery-grid preview">
         </div>
-        <p class="menu-text slideIn">
-          서울 종로구 종로1길 50 더케이트윈타워 A동 LL층(지하2층),<br> 아펠가모 광화문
-        </p>
 
-        <div class="slideIn">
+        <div class="text-center mt-3">
+          <button class="picture-more-btn" id="gallery-more-picture">
+            <i class="bi bi-chevron-down"></i> 더 보기 <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <img src="./img/location-title.jpg" class="menu-title-img" style="margin-top: 35px; margin-bottom: 15px;">
+      </div>
+      <div style="text-align: center;">
+        <img src="./img/location-text.jpg" class="menu-title-img" style="margin-bottom: 35px;">
+      </div>
+
+      <div class="menu mb-3">
+        <div>
           <div id="map" class="map m-auto"></div>
           <div class="map-list m-auto">
             <a href="https://naver.me/FYuIvnpo" target="_blank">
@@ -119,84 +99,32 @@
             </a>
           </div>
         </div>
-
-        <div class="way-info-wrap">
-          <div class="way-info slideIn">
-            <div class="way-info-title">
-              <div class="way-icon">
-                <i class="bi bi-train-lightrail-front"></i>
-              </div>
-              지하철
-            </div>
-
-            <div class="way-info-desc">
-              <p class="way-subway subway-line-1">1호선 종각역</p>
-              <p class="way-info-text">
-                1번 출구<br>
-                직진 후, 교보문고에서 우회전, 직진 후 사거리에서 우측 대각선 건물
-              </p>
-              <p class="way-subway subway-line-3">3호선 경북궁역</p>
-              <p class="way-info-text">
-                6번 출구<br>
-                광화문 삼거리 건넌 후, 광화문 열린시민마당 건너편 건물
-              </p>
-              <p class="way-subway subway-line-5">5호선 광화문역</p>
-              <p class="way-info-text">
-                2번 출구<br>
-                경복궁 방면으로 직진 후, 역사박물관에서 우회전, 사거리에서 좌측 대각선 첫 번째 건물
-              </p>
-            </div>
-          </div>
-          <div class="way-info slideIn">
-            <div class="way-info-title">
-              <div class="way-icon">
-                <i class="bi bi-bus-front"></i>
-              </div>
-              버스
-            </div>
-
-            <div class="way-info-desc">
-              <p class="way-bus">세종문화회관</p>
-              <p class="way-bus">KT광화문지사</p>
-              <p class="way-bus">경복궁</p> 
-              <p class="way-info-text">
-                지선(초록)_1020, 1711, 7016, 7018, 7022, 7212, 7025<br>
-                간선(파랑)_103, 109, 150, 171, 272, 401, 402, 406, 408, 606, 607, 700, 704, 706, 707, 708<br>
-                마을버스_종로 09, 종로 11
-            </div>
-          </div>
-
-          <div class="way-info slideIn">
-            <div class="way-info-title">
-              <div class="way-icon">
-                <i class="bi bi-p-square"></i>
-              </div>
-              주차 안내
-            </div>
-
-            <div class="way-info-desc">
-              <p class="way-info-text m-0">
-                서울시 종로구 종로1길 50, 더케이트윈타워[A동] 지하주차장<br>
-                건물 지하 2시간 무료 주차 가능 (출차전 로비 무인 정산)
-              </p>
-            </div>
-          </div>
-
-        </div>
+      </div>
+      <div style="text-align: center;">
+        <img src="./img/location-info.jpg" style="width: 100%; margin-bottom: 35px;">
       </div>
 
-      <div class="menu slideIn" id="account-wrapper">
-        <div class="menu-title">
-          <img src="./img/flower.png">
-          마음 전하실 곳
-        </div>
+      <div style="text-align: center;">
+        <img src="./img/notice-title.jpg" class="menu-title-img" style="margin-top: 35px; margin-bottom: 15px;">
+      </div>
+      <div style="text-align: center;">
+        <img src="./img/notice-info.jpg" style="width: 100%; margin-bottom: 35px;">
+      </div>
 
+      <div style="text-align: center;">
+        <img src="./img/account-title.jpg" class="menu-title-img" style="margin-top: 35px; margin-bottom: 15px;">
+      </div>
+      <div style="text-align: center;">
+        <img src="./img/account-text.jpg" class="menu-title-img" style="margin-bottom: 30px;">
+      </div>
+
+      <div class="menu" id="account-wrapper">
         <div class="menu-contents">
           <div class="accordion mb-3" id="g-account">
             <div class="accordion-item rounded-bottom">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g-account-item" aria-expanded="false" aria-controls="g-account-item">
-                  신랑측 계좌번호
+                <button class="custom-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g-account-item" aria-expanded="false" aria-controls="g-account-item">
+                  신랑측 계좌번호 <i class="bi bi-chevron-down"></i>
                 </button>
               </h2>
               <div id="g-account-item" class="accordion-collapse collapse" data-bs-parent="#g-account">
@@ -240,8 +168,8 @@
           <div class="accordion" id="b-account">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b-account-item" aria-expanded="false" aria-controls="b-account-item">
-                  신부측 계좌번호
+                <button class="custom-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b-account-item" aria-expanded="false" aria-controls="b-account-item">
+                  신부측 계좌번호 <i class="bi bi-chevron-down"></i>
                 </button>
               </h2>
               <div id="b-account-item" class="accordion-collapse collapse" data-bs-parent="#b-account">
@@ -285,9 +213,9 @@
 
       </div>
 
-      <div class="slideIn" style="text-align: center;">
-          <img src="./img/invitation-img.jpg" class="menu-title-img" style="max-height: 397px; margin-bottom: 30px;">
-        </div>
+      <div style="text-align: center;">
+        <img src="./img/invitation-img.jpg" class="menu-title-img" style="max-height: 397px; margin-bottom: 30px;">
+      </div>
 
     </main>
 
@@ -303,10 +231,10 @@
         </button>
       </div>
       
-      <span class="copyright">Copyright 2024 HYEJI DOYEONG, All rights reserved</span>
+      <div class="copyright">Copyright 2024 HYEJI DOYEONG, All rights reserved</div>
     </footer>
 
-    <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
+    <div class="modal" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header justify-content-center">
@@ -358,7 +286,7 @@
       <div class="carousel-modal-wrapper">
         <div class="carousel-modal-content">
           <button class="carousel-modal-close btn text-white">X</button>
-          <div id="gallery-carousel" class="carousel slide">
+          <div id="gallery-carousel" class="carousel">
             <div class="carousel-inner">
 
             </div>

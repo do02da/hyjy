@@ -2,7 +2,7 @@ const galleryImages = [];
 let isCanCarouselMove = true;
 
 window.addEventListener('DOMContentLoaded', () => {
-  // const autoplayVideoInterval = setInterval("autoplayVideo()", 200);
+  const autoplayVideoInterval = setInterval("autoplayVideo()", 200);
 
   init();
 });
@@ -46,6 +46,7 @@ async function setGalleryImage() {
           }
         });
 
+        if (img.dataset.index >= 6 && img.dataset.index <= 8) img.classList.add("gradation");
         document.getElementById("gallery").appendChild(img);
       }
 
@@ -55,6 +56,8 @@ async function setGalleryImage() {
         threshold: 0.5
       }; 
       
+
+      /*
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -65,6 +68,7 @@ async function setGalleryImage() {
       
       const imageList = document.querySelectorAll(".gallery-grid img");
       imageList.forEach((el) => observer.observe(el));
+      */
     });
 }
 
@@ -95,7 +99,7 @@ function setEvents() {
     rootMargin: "0px",
     threshold: 0.5
   }; 
-  
+  /*
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -106,6 +110,7 @@ function setEvents() {
   
   const slideInList = document.querySelectorAll(".slideIn");
   slideInList.forEach((el) => observer.observe(el));
+  */
 
   const audioButton = document.getElementById("audio-button");
   // BGM 음소거 On/Off 버튼
@@ -129,9 +134,14 @@ function setEvents() {
     if (e.target.nodeName.toUpperCase() === "IMG") openGalleryModal(e.target.dataset.index);
   });
 
+  // 사진 더 보기 버튼 클릭 이벤트
   document.getElementById("gallery-more-picture").addEventListener("click", (e) => {
     document.getElementById("gallery").classList.remove("preview");
-    e.target.remove();
+    document.querySelectorAll(".gradation").forEach((img) => {
+      img.classList.remove("gradation");
+    });
+
+    e.currentTarget.remove();
   });
 
   // 계좌 번호 복사
