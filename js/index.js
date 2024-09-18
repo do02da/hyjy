@@ -159,9 +159,9 @@ function setEvents() {
     Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
-        title: '주영 ♥ 혜연',
+        title: '혜연 ♥ 주영',
         description: '2024년 12월 7일 오전 11시\n아펠가모 광화문',
-        imageUrl: 'https://do02da.github.io/hyjy/img/main.jpg',
+        imageUrl: 'https://do02da.github.io/hyjy/img/main-thumbnail.jpg',
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href,
