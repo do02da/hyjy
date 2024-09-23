@@ -2,7 +2,7 @@ const galleryImages = [];
 let isCanCarouselMove = true;
 
 window.addEventListener('DOMContentLoaded', () => {
-  const autoplayVideoInterval = setInterval("autoplayVideo()", 200);
+  // const autoplayVideoInterval = setInterval("autoplayVideo()", 200);
 
   init();
 });
@@ -16,6 +16,7 @@ function init() {
   setEvents();
 }
 
+/*
 function autoplayVideo() {
   const promise = document.getElementById('bgm').play();
   if (promise !== undefined) {
@@ -24,6 +25,7 @@ function autoplayVideo() {
     }).catch(function (error) {});
   }
 }
+*/
 
 async function setGalleryImage() {
   await fetch("./batch/fileList.json")
