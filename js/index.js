@@ -1,5 +1,6 @@
 const galleryImages = [];
-let isCanCarouselMove = true;
+const carouselModal = new bootstrap.Modal(document.getElementById('carousel-modal'));
+const carousel = new bootstrap.Carousel(document.querySelector('#gallery-carousel'));
 
 window.addEventListener('DOMContentLoaded', () => {
   // const autoplayVideoInterval = setInterval("autoplayVideo()", 200);
@@ -50,16 +51,27 @@ async function setGalleryImage() {
 
         if (img.dataset.index >= 6 && img.dataset.index <= 8) img.classList.add("gradation");
         document.getElementById("gallery").appendChild(img);
+
+        // 자세히 보기 Carousel 생성
+        const carouselItem = document.createElement("div");
+        carouselItem.dataset.imgIndex = img.dataset.index;
+        carouselItem.classList = "carousel-item";
+      
+        const carouselImg = document.createElement("img");
+        carouselImg.classList = "carousel-img";
+        carouselImg.src = img.src;
+        carouselItem.appendChild(carouselImg);
+
+        document.getElementById("carousel-inner").appendChild(carouselItem);
       }
 
+      /*
       const options = {
         root: null,
         rootMargin: "0px",
         threshold: 0.5
       }; 
       
-
-      /*
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -96,12 +108,13 @@ function setMap() {
 }
 
 function setEvents() {
+  /*
   const options = {
     root: null,
     rootMargin: "0px",
     threshold: 0.5
-  }; 
-  /*
+  };
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -151,15 +164,15 @@ function setEvents() {
   // 계좌 번호 복사
   document.getElementById("account-wrapper").addEventListener("click", (e) => {
     const target = e.target;
-    if (target.classList.contains("copy-account")) {
-      const accountNumber = target.parentNode.getElementsByClassName("account-number")[0].innerText;
+    if (target.classList.contains("copy-account") || target.parentNode.classList.contains("copy-account")) {
+      const accountNumber = target.closest(".account").getElementsByClassName("account-number")[0].innerText;
 
       window.navigator.clipboard.writeText(accountNumber);
       document.getElementById("confirm-modal-body").innerText = "계좌번호가 복사되었습니다.";
       new bootstrap.Modal(document.getElementById('confirm-modal'), {}).show();
       
     } else return;
-  });
+  }, false);
 
   // 카카오톡 공유하기
   document.getElementById("share-kakao").addEventListener("click", () => {
@@ -194,99 +207,30 @@ function setEvents() {
 
   // 갤러리 모달 닫기
   document.querySelector(".carousel-modal-close").addEventListener("click", () => closeGalleryModal());
-  document.querySelector(".carousel-modal").addEventListener("click", (e) => {
+  document.getElementById("carousel-modal").addEventListener("click", (e) => {
     if (e.target.nodeName === "DIV") closeGalleryModal();
-  });
-
-  document.querySelector(".carousel-control-prev").addEventListener("click", () => moveCarousel("prev"));
-  document.querySelector(".carousel-control-next").addEventListener("click", () => moveCarousel("next"));
-  document.querySelector('#gallery-carousel').addEventListener('slid.bs.carousel', event => {
-    document.querySelector(".carousel-item:not(.active)").remove();
-    isCanCarouselMove = true;
-  });
-  // 터치 이벤트
-  let startX = 0;
-  document.querySelector('#gallery-carousel').addEventListener('touchstart', event => {
-    if (event.target.classList.contains("carousel-img")) startX = event.touches[0].pageX;
-  });
-  document.querySelector('#gallery-carousel').addEventListener('touchend', event => {
-    if (event.target.classList.contains("carousel-img")) {
-      let endX = event.changedTouches[0].pageX;
-      
-      if (startX < endX) moveCarousel("prev");
-      else moveCarousel("next");
-    }
   });
 }
 
 function openGalleryModal(index) {
-  document.querySelector(".carousel-modal").classList.add("show");
-  document.body.classList.add("carousel-modal-open");
+  document.querySelector(`.carousel-item[data-img-index='${index}']`).classList.add("active");;
+  carouselModal.show();
 
-  const carouselItem = document.createElement("div");
-  carouselItem.classList = "carousel-item active";
-
-  const carouselImg = document.createElement("img");
-  carouselImg.classList = "carousel-img";
-  carouselImg.src = "./img/gallery/" + galleryImages[index];
-  carouselImg.dataset.imgIndex = index;
-  carouselItem.appendChild(carouselImg);
-
-  document.querySelector(".carousel-inner").appendChild(carouselItem);
-
-  window.addEventListener("keydown", (e) => keyboardEvent(e));
+  window.addEventListener("keydown", keyboardEvent);
 }
 
 function closeGalleryModal() {
-  document.querySelector(".carousel-modal").classList.remove("show");
-  document.body.classList.remove("carousel-modal-open");
+  carouselModal.hide();
 
-  document.querySelector(".carousel-inner").textContent = "";
-
+  document.querySelectorAll(".carousel-item").forEach((item) => item.classList.remove("active"));
   window.removeEventListener("keydown", keyboardEvent);
-}
-
-function moveCarousel(direction) {
-  if (isCanCarouselMove) {
-    isCanCarouselMove = false;
-
-    let index = Number(document.querySelector(".carousel-item.active img").dataset.imgIndex);
-    if (direction === "prev") {
-      if (index === 0) index = galleryImages.length - 1;
-      else index -= 1;
-    } else if (direction === "next") {
-      if (index === galleryImages.length - 1) index = 0;
-      else index += 1;
-    }
-  
-    const carouselItem = document.createElement("div");
-    carouselItem.classList = "carousel-item";
-  
-    const carouselImg = document.createElement("img");
-    carouselImg.classList = "carousel-img";
-    carouselImg.src = "./img/gallery/" + galleryImages[index];
-    carouselImg.dataset.imgIndex = index;
-    carouselItem.appendChild(carouselImg);
-  
-    const bsCarousel = new bootstrap.Carousel(document.querySelector('#gallery-carousel'))
-    const activeCarouselItem = document.querySelector(".carousel-item.active");
-    if (direction === "prev") {
-      document.querySelector(".carousel-inner").insertBefore(carouselItem, activeCarouselItem);
-      bsCarousel.prev();
-    } else if (direction === "next") {
-      document.querySelector(".carousel-inner").appendChild(carouselItem);
-      bsCarousel.next();
-    }
-  }
 }
 
 function keyboardEvent(e) {
   if (e.key === "ArrowLeft") {
-    moveCarousel("prev")
+    carousel.prev();
   } else if (e.key === "ArrowRight") {
-    moveCarousel("next")
-  } else if (e.key === "Escape") {
-    closeGalleryModal();
+    carousel.next();
   }
 }
 

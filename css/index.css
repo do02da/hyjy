@@ -59,15 +59,10 @@ footer { padding: 0 50px 25px 0; }
 .share-btn { display: flex; align-items: center; font-size: 14px; gap: 5px; }
 .copyright { color: rgba(100, 100, 100, 0.5); font-size: 0.8rem; margin-top: 35px; }
 
-.carousel-modal-open { overflow: hidden ;}
-.carousel-modal { display: none; position: fixed; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); }
+#carousel-modal .modal-body { padding: 0 !important; align-content: center; }
+#carousel-modal .modal-content { background-color: rgba(0, 0, 0, 0.5); }
+#carousel-modal .carousel-img { max-width: 100vw; max-height: 100vh; }
 .carousel-modal-close { position: absolute; top: 10px; right: 10px; z-index: 2; }
-.carousel-modal.show { display: block; }
-.carousel-modal-wrapper { display: flex; align-items: center; margin: auto; height: 100%; }
-.carousel-modal-content { position: relative; width: 100%; display: flex; flex-direction: column; }
-.carousel-item { width: 100vw; height: 100vh; }
-.carousel-img { max-width: 100vw; max-height: 100vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.carousel-control-next, .carousel-control-prev { top: 50%; height: 32px; }
 
 .contact-grid { display: grid; grid-template-columns: 2fr 2fr 1fr 1fr; text-align: center; gap: 10px 0; }
 
