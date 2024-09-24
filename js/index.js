@@ -114,6 +114,7 @@ function setEvents() {
   slideInList.forEach((el) => observer.observe(el));
   */
 
+  /*
   const audioButton = document.getElementById("audio-button");
   // BGM 음소거 On/Off 버튼
   audioButton.addEventListener("click", () => {
@@ -130,6 +131,7 @@ function setEvents() {
       bgm.muted = false;
     }
   });
+  */
 
   // 갤러리 이미지 클릭 이벤트
   document.getElementById("gallery").addEventListener("click", (e) => {
@@ -153,6 +155,7 @@ function setEvents() {
       const accountNumber = target.parentNode.getElementsByClassName("account-number")[0].innerText;
 
       window.navigator.clipboard.writeText(accountNumber);
+      alert("계좌번호가 복사되었습니다.");
     } else return;
   });
 
