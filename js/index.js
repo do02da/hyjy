@@ -155,7 +155,9 @@ function setEvents() {
       const accountNumber = target.parentNode.getElementsByClassName("account-number")[0].innerText;
 
       window.navigator.clipboard.writeText(accountNumber);
-      alert("계좌번호가 복사되었습니다.");
+      document.getElementById("confirm-modal-body").innerText = "계좌번호가 복사되었습니다.";
+      new bootstrap.Modal(document.getElementById('confirm-modal'), {}).show();
+      
     } else return;
   });
 
@@ -185,7 +187,9 @@ function setEvents() {
   // 링크주소 공유하기
   document.getElementById("share-link").addEventListener("click", () => {
     window.navigator.clipboard.writeText(window.location.href);
-    alert("주소가 복사되었습니다.");
+    
+    document.getElementById("confirm-modal-body").innerText = "링크주소가 복사되었습니다.";
+    new bootstrap.Modal(document.getElementById('confirm-modal'), {}).show();
   });
 
   // 갤러리 모달 닫기
